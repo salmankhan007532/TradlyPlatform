@@ -10,7 +10,7 @@ class ApiService {
   getPost() async {
     List<PostModel> postModelList = [];
     try {
-      final response = await http.get(Uri.parse(postUrl));
+      final response = await http.get(Uri.parse(storeUrl));
 
       print(response.statusCode);
 
@@ -19,9 +19,12 @@ class ApiService {
         for (var value in data) {
           postModelList.add(PostModel(
               title: value["title"],
-              body: value["body"],
-              userId: value["userId"],
-              id: value["id"]));
+              price: value["prince"],
+              image: value["image"],
+              category: value["category"],
+              description: value["description"],
+              
+              ));
         }
         //  print(postModelList.length);
         return postModelList;
@@ -33,32 +36,4 @@ class ApiService {
     }
   }
 
-  // comment
-
-  getComments(String postId) async {
-    List<CommentsModel> commentsList = [];
-    try {
-      final response = await http.get(Uri.parse("$postUrl/$postId/comments"));
-
-      print(response.statusCode);
-
-      final data = jsonDecode(response.body);
-      if (response.statusCode == 200) {
-        print(response.body);
-        for (var value in data) {
-          commentsList.add(CommentsModel(
-            name: value["name"],
-            commentText: value["body"],
-            email: value["email"],
-          ));
-        }
-        print(commentsList.length);
-        return commentsList;
-      } else {
-        return commentsList;
-      }
-    } catch (e) {
-      print("Some issue in the get comment request$e");
-    }
-  }
 }

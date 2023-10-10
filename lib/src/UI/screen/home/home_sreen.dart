@@ -56,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                         letterSpacing:0,
                         fontSize: 18
                         ),
-                        subtitle:manropeText(text: model.postModelList[index].body.toString().substring(0,101),
+                        subtitle:manropeText(text: model.postModelList[index].price.toString().substring(0,101),
                         letterSpacing:0,
                         fontWeight: FontWeight.w100,
                         fontSize:15,

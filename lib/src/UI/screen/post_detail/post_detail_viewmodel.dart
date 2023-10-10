@@ -6,19 +6,5 @@ class PostDetailViewModel extends ChangeNotifier {
   ApiService apiService = ApiService();
   List<CommentsModel> commentsList = [];
   bool isLoading=false;
-  PostDetailViewModel(String postId) {
-    getComments(postId);
-  }
 
-  getComments(String postId) async {
-    isLoading=true;
-    try {
-      commentsList = await apiService.getComments(postId);
-      isLoading=false;
-      notifyListeners();
-    } catch (e) {
-      isLoading=false;
-      print("error in getComments()=>+$e");
-    }
-  }
 }

@@ -15,9 +15,9 @@ class PostDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(postObject.body);
+    print(postObject.price);
     return ChangeNotifierProvider(
-      create: (_) => PostDetailViewModel(postObject.id.toString()),
+      create: (_) => PostDetailViewModel(),
       child: Consumer<PostDetailViewModel>(
         builder: (context, model, child) => Scaffold(
           backgroundColor: const Color.fromARGB(221, 238, 229, 229),
@@ -39,7 +39,7 @@ class PostDetailScreen extends StatelessWidget {
                  
                   title: manropeText(text: postObject.title, letterSpacing: 0),
                   subtitle: manropeText(
-                    text: postObject.body,
+                    text: postObject.price,
                     letterSpacing: 0,
                     fontWeight: FontWeight.w100,
                     fontSize: 15,

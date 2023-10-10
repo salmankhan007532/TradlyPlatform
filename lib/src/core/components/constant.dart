@@ -1,1 +1,1 @@
-const postUrl = "https://jsonplaceholder.typicode.com/posts";
+const storeUrl = "https://fakestoreapi.com/products";

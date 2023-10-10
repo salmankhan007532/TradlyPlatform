@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tradly_platform/src/ui/screens/home%20screen/home_screen.dart';
+import 'package:tradly_platform/src/UI/screen/home/home_sreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreeen(),
+      home: const HomeScreen(),
     );
   }
 }

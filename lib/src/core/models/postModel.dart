@@ -1,14 +1,16 @@
 class PostModel {
   
   String title;
-  String body;
-  int userId;
-  int id;
+  String price;
+  int image;
+  int category;
+  int description;
   PostModel({
     required this.title,
-    required this.body,
-    required this.id,
-    required this.userId,
+    required this.price,
+    required this.category,
+    required this.image,
+    required this.description,
   
   });
 }
