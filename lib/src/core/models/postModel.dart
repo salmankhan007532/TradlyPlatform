@@ -1,10 +1,10 @@
 class PostModel {
   
   String title;
-  String price;
-  int image;
-  int category;
-  int description;
+  var price;
+  String image;
+  String category;
+  String description;
   PostModel({
     required this.title,
     required this.price,

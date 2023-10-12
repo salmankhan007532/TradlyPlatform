@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:provider/provider.dart';
 import 'package:tradly_platform/src/UI/screen/home/home_viewmodel.dart';
-import 'package:tradly_platform/src/UI/screen/post_detail/post_detail_screen.dart';
+import 'package:tradly_platform/src/UI/screen/item_detail/item_detail_screen.dart';
 import 'package:tradly_platform/src/core/components/fontmanager.dart';
 
 import '../../../core/components/colors.dart';
@@ -20,7 +21,7 @@ class HomeScreen extends StatelessWidget {
         builder: (context,model,child)=>
        Scaffold(
         backgroundColor: const Color.fromARGB(221, 238, 229, 229),
-          appBar: AppBar(title: const Text("Posts"),
+          appBar: AppBar(title: const Text("Store"),
           backgroundColor:baseColor,),
           body: FutureBuilder(
             future: model.init(),
@@ -28,8 +29,8 @@ class HomeScreen extends StatelessWidget {
             {
               if(snapshot.connectionState==ConnectionState.waiting)
               {
-                return const SpinKitCircle(
-                  size: 40,
+                return  SpinKitCircle(
+                  size: 40.sp,
                   color: Colors.blue,
                 );
 
@@ -37,7 +38,7 @@ class HomeScreen extends StatelessWidget {
               else if(snapshot.hasData)
               {
                 return ListView.builder(
-                  itemCount:5,
+                  itemCount:model.postModelList.length,
                   physics:const BouncingScrollPhysics(),
                   itemBuilder: (context,index)
                   {
@@ -50,18 +51,20 @@ class HomeScreen extends StatelessWidget {
                         child:ListTile(
                         onTap:()
                         {
-                         Get.to(()=>PostDetailScreen(postObject:model.postModelList[index]));
+                         Get.to(()=> ItemDetailScreen(itemDetailObj: model.postModelList[index],));
                         },
-                        title:manropeText(text: model.postModelList[index].title.toString(),
+                        title:manropeText(text: "Title : ${model.postModelList[index].title.toString()}",
                         letterSpacing:0,
                         fontSize: 18
                         ),
-                        subtitle:manropeText(text: model.postModelList[index].price.toString().substring(0,101),
-                        letterSpacing:0,
-                        fontWeight: FontWeight.w100,
-                        fontSize:15,
-                        color:const Color.fromARGB(255, 49, 45, 45),
-                        ),
+                        // subtitle:manropeText(text: model.postModelList[index].price.toString().substring(0,101),
+                        // letterSpacing:0,
+                        // fontWeight: FontWeight.w100,
+                        // fontSize:15,
+                        // color:const Color.fromARGB(255, 49, 45, 45),
+                        // ),
+                        subtitle: Text( " RS: ${model.postModelList[index].price.toString()}"),
+                        leading: Image.network( model.postModelList[index].image.toString(),fit: BoxFit.cover,),
                     
                         )
                       ),

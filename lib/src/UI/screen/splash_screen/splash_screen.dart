@@ -1,10 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tradly_platform/src/UI/screen/home/home_sreen.dart';
 
 import '../../../core/components/colors.dart';
@@ -35,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: kblue,
       body: Center(
         child: manropeText(
-          text: "Flutter Posts",
+          text: "Online Store",
           color: kwhiteColor,
           fontSize: 40.sp,
           fontWeight: FontWeight.w700,

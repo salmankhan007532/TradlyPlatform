@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:tradly_platform/src/core/components/constant.dart';
-import 'package:tradly_platform/src/core/models/commentsModel.dart';
 import 'package:tradly_platform/src/core/models/postModel.dart';
 
 class ApiService {
@@ -19,7 +18,7 @@ class ApiService {
         for (var value in data) {
           postModelList.add(PostModel(
               title: value["title"],
-              price: value["prince"],
+              price: value["price"],
               image: value["image"],
               category: value["category"],
               description: value["description"],
