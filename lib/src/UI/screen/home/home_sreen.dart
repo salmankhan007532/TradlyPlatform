@@ -21,7 +21,11 @@ class HomeScreen extends StatelessWidget {
         builder: (context,model,child)=>
        Scaffold(
         backgroundColor: const Color.fromARGB(221, 238, 229, 229),
-          appBar: AppBar(title: const Text("Store"),
+          appBar: AppBar(
+            actions: [
+              IconButton(onPressed: (){}, icon: const Icon(Icons.logout)),
+            ],
+            title: const Text("Store"),
           backgroundColor:baseColor,),
           body: FutureBuilder(
             future: model.init(),

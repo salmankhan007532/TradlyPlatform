@@ -1,12 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
-import 'package:tradly_platform/src/UI/screen/home/home_sreen.dart';
 import 'package:tradly_platform/src/UI/screen/splash_screen/splash_screen.dart';
 import 'package:tradly_platform/src/core/models/basemodel.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
  
   runApp(const MyApp());
 }
